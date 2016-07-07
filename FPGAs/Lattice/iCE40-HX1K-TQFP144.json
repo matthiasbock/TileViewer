@@ -1,0 +1,24 @@
+{
+    "sizeX": 14,
+    "sizeY": 18,
+    "tilesRows":
+    [
+        0:
+        [
+            0: null,
+            1: {"type": "IO"},
+            2: {"type": "IO"},
+            3: {"type": "IO"},
+            4: {"type": "IO"},
+            5: {"type": "IO"},
+            6: {"type": "IO"},
+            7: {"type": "IO"},
+            8: {"type": "IO"},
+            9: {"type": "IO"},
+            10: {"type": "IO"},
+            11: {"type": "IO"},
+            12: {"type": "IO"},
+            13: {"type": "WARMBOOT"}
+        ]
+    ]
+}
