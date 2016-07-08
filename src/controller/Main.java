@@ -23,6 +23,6 @@ public class Main
     public static FPGA importFPGAfromFile(String filename)
     {
         // TODO: BufferedReader FileStream ...
-        return null;
+        return new FPGA(2, 5);
     }
 }

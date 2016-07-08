@@ -1,9 +1,9 @@
 {
     "sizeX": 14,
     "sizeY": 18,
-    "tilesRows":
+    "tileRows":
     [
-        0:
+        // row 0
         [
             0: null,
             1: {"type": "IO"},

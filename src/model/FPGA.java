@@ -12,7 +12,7 @@ import model.tiles.Tile;
 public class FPGA
 {
     // matrix of tiles
-    private List<List<Tile>> tiles;
+    private List<List<Tile>> tiles = null;
     
     /**
      * Initialize FPGA as matrix of tiles
@@ -63,5 +63,19 @@ public class FPGA
     public void setTile(int x, int y, Tile t)
     {
         tiles.get(y).set(x, t);
+    }
+    
+    public int getSizeX()
+    {
+        if (tiles == null || tiles.size() < 1)
+            return 0;
+        return tiles.get(0).size();
+    }
+
+    public int getSizeY()
+    {
+        if (tiles == null)
+            return 0;
+        return tiles.size();
     }
 }
