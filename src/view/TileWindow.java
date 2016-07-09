@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import model.FPGA;
+import model.tiles.TileColor;
 
 /**
  * This class represents a SWING window,
@@ -86,9 +87,15 @@ public class TileWindow extends JFrame
             {
                 // new tile
                 JPanel panel = new JPanel();
+
                 panel.setSize(tileWidth, tileHeight);
                 panel.setLocation(tileOffsetX + x*(tileWidth+tileSpacingX), tileOffsetY + y*(tileHeight+tileSpacingY));
-                panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+                if (fpga.getTile(x, y) != null)
+                {
+                    panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+                    panel.setBackground(TileColor.byType(fpga.getTile(x, y).getType()));
+                }
                 
                 // remember object link
                 row.add(panel);
@@ -99,14 +106,14 @@ public class TileWindow extends JFrame
         }
         
         // adjust window size
-        int minWidth = tileOffsetX + (this.getFPGA().getSizeX()*(tileWidth+tileSpacingX));
+        int minWidth = 2*tileOffsetX + (this.getFPGA().getSizeX()*(tileWidth+tileSpacingX));
         int width = (int) this.getSize().getWidth(); 
         if (width < minWidth)
         {
             width = minWidth;
         }
 
-        int minHeight = tileOffsetY + (this.getFPGA().getSizeY()*(tileHeight+tileSpacingY));
+        int minHeight = 2*tileOffsetY + (this.getFPGA().getSizeY()*(tileHeight+tileSpacingY));
         int height = (int) this.getSize().getHeight(); 
         if (height < minHeight)
         {
