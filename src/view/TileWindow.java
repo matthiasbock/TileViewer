@@ -27,8 +27,11 @@ public class TileWindow extends JFrame
     private List<List<JPanel>> tileBoxes = null;
     
     // preferred attributes 
-    private static final int TILE_WIDTH = 5; 
-    private static final int TILE_HEIGHT = 5; 
+    private int tileOffsetX = 10;
+    private int tileOffsetY = 10;
+    private int tileWidth = 50;
+    private int tileHeight = 80;
+    private int tileSpacing = 5;
     
     /**
      * Create window for FPGA visualization
@@ -40,7 +43,7 @@ public class TileWindow extends JFrame
         this.setTitle("FPGA tiles");
         
         this.setLocationRelativeTo(null);
-        this.setBounds(100, 100, 600, 250);
+        this.setBounds(300, 10, 300, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         this.setVisible(true);
@@ -67,7 +70,7 @@ public class TileWindow extends JFrame
     public void createTileBoxes()
     {
         // window as grid with appropriate size
-        this.getContentPane().setLayout(new GridLayout(fpga.getSizeY(), fpga.getSizeX()));
+        this.getContentPane().setLayout(null);
 
         // initialize matrix
         tileBoxes = new ArrayList<>();
@@ -80,14 +83,22 @@ public class TileWindow extends JFrame
             
             for (int x=0; x<fpga.getSizeX(); x++)
             {
+                // new tile
                 JPanel panel = new JPanel();
-                row.add(panel);
-                panel.setBounds(x, y, 1, 1);
+                panel.setSize(tileWidth, tileHeight);
+                panel.setLocation(tileOffsetX + x*(tileWidth+tileSpacing), tileOffsetY + y*(tileHeight+tileSpacing));
                 panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
                 
+                // remember object link
+                row.add(panel);
+                
+                // show
                 this.add(panel);
             }
         }
+        
+        // adjust window size
+        // TODO
     }
     
     public void setFPGA(FPGA fpga)
