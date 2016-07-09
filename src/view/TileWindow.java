@@ -82,9 +82,8 @@ public class TileWindow extends JFrame
             {
                 JPanel panel = new JPanel();
                 row.add(panel);
-//                panel.setBackground(Color.BLUE);
                 panel.setBounds(x, y, 1, 1);
-                panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
                 
                 this.add(panel);
             }

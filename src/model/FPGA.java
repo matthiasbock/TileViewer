@@ -11,8 +11,18 @@ import model.tiles.Tile;
  */
 public class FPGA
 {
+    // variables required for JSON import
+    // set by Gson using reflection
+    private int sizeX = 0;
+    private int sizeY = 0;
+
     // matrix of tiles
     private List<List<Tile>> tiles = null;
+
+    // does nothing
+    public FPGA()
+    {
+    }
     
     /**
      * Initialize FPGA as matrix of tiles

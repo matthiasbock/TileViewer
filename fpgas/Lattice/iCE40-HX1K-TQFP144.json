@@ -1,0 +1,330 @@
+{
+    "sizeX": 14,
+    "sizeY": 18,
+    "tileRows":
+    [
+        // row 0
+        [
+            null,
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "WARMBOOT"}
+        ],
+        
+        // row 1
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 2
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 3
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 4
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 5
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 6
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 7
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 8
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 9
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 10
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 11
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 12
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 13
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 14
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 15
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "RAM", "rowspan": 2},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 16
+        [
+            {"type": "IO"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            null,
+            {"type": "LOGIC"},
+            {"type": "LOGIC"},
+            {"type": "IO"}
+        ],
+        
+        // row 17
+        [
+            null,
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            {"type": "IO"},
+            null
+        ]
+    ]
+}

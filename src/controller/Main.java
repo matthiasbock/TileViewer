@@ -10,6 +10,8 @@ public class Main
         // import FPGA from file
         FPGA fpga = importFPGAfromFile("FPGAs/Lattice/iCE40-HX1K-TQFP144.json");
         
+        System.out.printf("FPGA has %dx%d tiles.\n", fpga.getSizeX(), fpga.getSizeY());
+        
         // display FPGA tile architecture
         TileWindow window = new TileWindow(fpga);
     }
