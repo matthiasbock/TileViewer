@@ -31,7 +31,8 @@ public class TileWindow extends JFrame
     private int tileOffsetY = 10;
     private int tileWidth = 50;
     private int tileHeight = 80;
-    private int tileSpacing = 5;
+    private int tileSpacingX = 5;
+    private int tileSpacingY = 5;
     
     /**
      * Create window for FPGA visualization
@@ -86,7 +87,7 @@ public class TileWindow extends JFrame
                 // new tile
                 JPanel panel = new JPanel();
                 panel.setSize(tileWidth, tileHeight);
-                panel.setLocation(tileOffsetX + x*(tileWidth+tileSpacing), tileOffsetY + y*(tileHeight+tileSpacing));
+                panel.setLocation(tileOffsetX + x*(tileWidth+tileSpacingX), tileOffsetY + y*(tileHeight+tileSpacingY));
                 panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
                 
                 // remember object link
@@ -98,7 +99,26 @@ public class TileWindow extends JFrame
         }
         
         // adjust window size
-        // TODO
+        int minWidth = tileOffsetX + (this.getFPGA().getSizeX()*(tileWidth+tileSpacingX));
+        int width = (int) this.getSize().getWidth(); 
+        if (width < minWidth)
+        {
+            width = minWidth;
+        }
+
+        int minHeight = tileOffsetY + (this.getFPGA().getSizeY()*(tileHeight+tileSpacingY));
+        int height = (int) this.getSize().getHeight(); 
+        if (height < minHeight)
+        {
+            height = minHeight;
+        }
+        
+        this.setSize(width, height);
+    }
+    
+    public FPGA getFPGA()
+    {
+        return this.fpga;
     }
     
     public void setFPGA(FPGA fpga)

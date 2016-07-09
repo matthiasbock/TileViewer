@@ -15,16 +15,16 @@ import model.cells.LogicCell;
  */
 public class Tile
 {
-    protected ETileType tileType = ETileType.EMPTY;
+    protected ETileType type = ETileType.EMPTY;
     protected List<LogicCell> cells = new ArrayList<>();
-    
-    /**
-     * Set the type of this tile
-     * 
-     * @param type: Type to set
-     */
-    public void setTileType(ETileType type)
+
+    public ETileType getType()
     {
-        tileType = type;
+        return type;
+    }
+    
+    public void setType(ETileType type)
+    {
+        this.type = type;
     }
 }
