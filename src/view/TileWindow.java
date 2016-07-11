@@ -30,10 +30,10 @@ public class TileWindow extends JFrame
     // preferred attributes 
     private int tileOffsetX = 10;
     private int tileOffsetY = 10;
-    private int tileWidth = 50;
-    private int tileHeight = 80;
-    private int tileSpacingX = 5;
-    private int tileSpacingY = 5;
+    private int tileWidth = 12;
+    private int tileHeight = 20;
+    private int tileSpacingX = 2;
+    private int tileSpacingY = 2;
     
     /**
      * Create window for FPGA visualization
@@ -74,37 +74,6 @@ public class TileWindow extends JFrame
         // window as grid with appropriate size
         this.getContentPane().setLayout(null);
 
-        // initialize matrix
-        tileBoxes = new ArrayList<>();
-        
-        // fill with panels
-        for (int y=0; y<fpga.getSizeY(); y++)
-        {
-            List<JPanel> row = new ArrayList<>();
-            tileBoxes.add(row);
-            
-            for (int x=0; x<fpga.getSizeX(); x++)
-            {
-                // new tile
-                JPanel panel = new JPanel();
-
-                panel.setSize(tileWidth, tileHeight);
-                panel.setLocation(tileOffsetX + x*(tileWidth+tileSpacingX), tileOffsetY + y*(tileHeight+tileSpacingY));
-
-                if (fpga.getTile(x, y) != null)
-                {
-                    panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-                    panel.setBackground(TileColor.byType(fpga.getTile(x, y).getType()));
-                }
-                
-                // remember object link
-                row.add(panel);
-                
-                // show
-                this.add(panel);
-            }
-        }
-        
         // adjust window size
         int minWidth = 2*tileOffsetX + (this.getFPGA().getSizeX()*(tileWidth+tileSpacingX));
         int width = (int) this.getSize().getWidth(); 
@@ -121,6 +90,41 @@ public class TileWindow extends JFrame
         }
         
         this.setSize(width, height);
+//        this.setResizable(false);
+
+        // initialize matrix
+        tileBoxes = new ArrayList<>();
+        
+        // fill with panels
+        for (int y=0; y<fpga.getSizeY(); y++)
+        {
+            // new row as array of panels
+            List<JPanel> row = new ArrayList<>();
+            tileBoxes.add(row);
+            
+            for (int x=0; x<fpga.getSizeX(); x++)
+            {
+                // new tile
+                JPanel panel = new JPanel();
+
+                // set position
+                panel.setSize(tileWidth, tileHeight);
+                panel.setLocation(tileOffsetX + x*(tileWidth+tileSpacingX), minHeight - (tileOffsetY + (y+1)*tileHeight + y*tileSpacingY));
+
+                // style according to tile type
+                if (fpga.getTile(x, y) != null)
+                {
+                    panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+                    panel.setBackground(TileColor.byType(fpga.getTile(x, y).getType()));
+                }
+                
+                // remember object link
+                row.add(panel);
+                
+                // show
+                this.add(panel);
+            }
+        }
     }
     
     public FPGA getFPGA()
