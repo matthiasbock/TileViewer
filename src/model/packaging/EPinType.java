@@ -4,14 +4,14 @@ public enum EPinType
 {
     NC,         // Not Connected 
     DPIO,
-    PIO,
+    PIO,        // Programmable In/Out
     CONFIG,
     SPI,        // Serial Peripheral Interface
-    GBIN,
-    VCC,
-    VCCIO,
-    VCCPLL,
-    GND,
-    GNDPLL,
-    VPP,
+    GBIN,       // Global Input
+    VCC,        // Supply voltage
+    GND,        // Ground
+    VCCIO,      // Supply voltage for I/O bank
+    VCCPLL,     // Supply voltage for Phase Locked Loop
+    GNDPLL,     // Ground for Phase Locked Loop
+    VPP,        // Supply voltage for EEPROM or NVCM programming and operation
 }

@@ -9,7 +9,7 @@ public class Pin
     private int pinNumber = -1;
     
     // the I/O bank, this pin belongs to
-    private int bank = -1;
+    private String bank = null;
     
     // the type of this pin
     private EPinType type = null;
@@ -32,12 +32,12 @@ public class Pin
         this.pinNumber = pinNumber;
     }
 
-    public int getBank()
+    public String getBank()
     {
         return bank;
     }
 
-    public void setBank(int bank)
+    public void setBank(String bank)
     {
         this.bank = bank;
     }

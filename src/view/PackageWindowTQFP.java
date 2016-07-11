@@ -127,7 +127,7 @@ public class PackageWindowTQFP extends JFrame
         for (Pin pin : getFPGA().getPackage().getPins())
         {
             int edge = getEdgeByPinNumber(pin.getPinNumber());
-            System.out.printf("Pin %d: Edge %d\n", pin.getPinNumber(), edge);
+            System.out.printf("\tPin %d: Edge %d, Bank %s, Type %s, Net %s\n", pin.getPinNumber(), edge, pin.getBank(), pin.getType(), pin.getNet());
         }
     }
     
