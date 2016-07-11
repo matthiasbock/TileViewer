@@ -72,7 +72,7 @@ public class TileWindow extends JFrame
      */
     public void createTileBoxes()
     {
-        // window as grid with appropriate size
+        // layout null ist required for arbitrary panel positioning
         this.getContentPane().setLayout(null);
 
         // adjust window size

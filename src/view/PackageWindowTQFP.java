@@ -1,10 +1,16 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Point;
+
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import model.FPGA;
 import model.packaging.Package;
 import model.packaging.Pin;
+import model.tiles.TileColor;
 
 /**
  * This class visualizes a TQFP package
@@ -19,6 +25,9 @@ public class PackageWindowTQFP extends JFrame
     // number of pins on the four edges of the package
     // in this order: left, bottom, right, top edge
     private int[] pinCount = {0, 0, 0, 0};
+    
+    private int pinWidth = 5;
+    private int pinHeight = 5;
 
     /**
      * Initialize package viewer window
@@ -89,6 +98,9 @@ public class PackageWindowTQFP extends JFrame
         this.setLocationRelativeTo(null);
         this.setBounds(605, 10, 300, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // layout null ist required for arbitrary panel positioning
+        this.getContentPane().setLayout(null);
         
         drawPins();
         
@@ -116,6 +128,33 @@ public class PackageWindowTQFP extends JFrame
         return -1;
     }
     
+    public Point calculatePinLocation(Pin pin)
+    {
+        int edge = getEdgeByPinNumber(pin.getPinNumber());
+        
+        switch (edge)
+        {
+            case 0: // left
+                return new Point(0, (pin.getPinNumber()-1)*pinHeight);
+
+            case 1: // bottom
+                return new Point((pin.getPinNumber()-pinCount[0])*pinWidth, pinCount[0]*pinHeight);
+                
+            case 2: // right
+                return new Point((pinCount[1]+2)*pinWidth, pinCount[0]*pinHeight - (pin.getPinNumber()-pinCount[0]-pinCount[1]-1)*pinHeight);
+
+            case 3: // top
+                return new Point((pinCount[1]+2)*pinWidth - (pin.getPinNumber()-pinCount[0]-pinCount[1]-pinCount[2]-1)*pinWidth, 0);
+                
+            default: // illegal edge
+                System.out.printf("Invalid edge: %d (pin %d)\n", edge, pin.getPinNumber());
+                break;
+        }
+        
+        // we should never arrive here
+        return new Point(0,0);
+    }
+    
     /**
      * Draw all pins of this package to the window
      */
@@ -126,8 +165,17 @@ public class PackageWindowTQFP extends JFrame
         
         for (Pin pin : getFPGA().getPackage().getPins())
         {
-            int edge = getEdgeByPinNumber(pin.getPinNumber());
-            System.out.printf("\tPin %d: Edge %d, Bank %s, Type %s, Net %s\n", pin.getPinNumber(), edge, pin.getBank(), pin.getType(), pin.getNet());
+            System.out.printf("\tPin %d: Bank %s, Type %s, Net %s\n", pin.getPinNumber(), pin.getBank(), pin.getType(), pin.getNet());
+            
+            //if (pin.getType() == EPinType.)
+            JPanel panel = new JPanel();
+            
+            panel.setSize(pinWidth, pinHeight);
+            panel.setLocation( calculatePinLocation(pin) );
+            panel.setBorder( BorderFactory.createLineBorder(Color.BLACK, 1) );
+            panel.setBackground(Color.BLUE);
+            
+            this.add(panel);
         }
     }
     
