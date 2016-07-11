@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.packaging.Package;
 import model.tiles.Tile;
 
 /**
@@ -19,10 +20,8 @@ public class FPGA
     // matrix of tiles
     private List<List<Tile>> tiles = null;
 
-    // does nothing
-    public FPGA()
-    {
-    }
+    // physical IC package
+    private Package chipPackage = null;
     
     /**
      * Initialize FPGA as matrix of tiles
@@ -48,6 +47,11 @@ public class FPGA
             }
         }
     }
+    
+    
+    /*
+     * Getters and Setters 
+     */
     
     /**
      * Retrieve a tile from this FPGA
@@ -87,5 +91,15 @@ public class FPGA
         if (tiles == null)
             return 0;
         return tiles.size();
+    }
+
+    public Package getPackage()
+    {
+        return chipPackage;
+    }
+
+    public void setPackage(Package chipPackage)
+    {
+        this.chipPackage = chipPackage;
     }
 }

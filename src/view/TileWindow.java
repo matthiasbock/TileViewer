@@ -40,9 +40,10 @@ public class TileWindow extends JFrame
      */
     public TileWindow()
     {
+        // JFrame constructor
         super();
         
-        this.setTitle("FPGA tiles");
+        this.setTitle("Tile viewer");
         
         this.setLocationRelativeTo(null);
         this.setBounds(300, 10, 300, 600);
@@ -125,7 +126,15 @@ public class TileWindow extends JFrame
                 this.add(panel);
             }
         }
+        
+        // necessary
+        this.repaint();
     }
+    
+    
+    /*
+     * Getters and Setters
+     */
     
     public FPGA getFPGA()
     {

@@ -1,6 +1,14 @@
 {
     "sizeX": 14,
     "sizeY": 18,
+    "chipPackage":
+    {
+        "type": "TQFP",
+        "pinCount": 144,
+        "pins":
+        [
+        ]
+    }, 
     "tiles":
     [
         [

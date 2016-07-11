@@ -7,10 +7,15 @@ import java.io.FileReader;
 import com.google.gson.Gson;
 
 import model.FPGA;
+import view.PackageWindowTQFP;
 import view.TileWindow;
 
 public class Main
 {
+    /**
+     * Import FPGA structure from JSON file
+     * and visualize/display parsed information
+     */
     public static void main(String[] args)
     {
         // import FPGA from file
@@ -19,8 +24,10 @@ public class Main
         System.out.printf("FPGA has %dx%d tiles.\n", fpga.getSizeX(), fpga.getSizeY());
         
         // display FPGA tile architecture
-        TileWindow window = new TileWindow(fpga);
-        window.repaint();
+        TileWindow tileWindow = new TileWindow(fpga);
+        
+        // display FPGA package
+        PackageWindowTQFP packageWindow = new PackageWindowTQFP(fpga);
     }
 
     /**
