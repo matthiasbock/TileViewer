@@ -1,10 +1,10 @@
-package model;
+package net.matthiasbock.tileviewer.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.packaging.Package;
-import model.tiles.Tile;
+import net.matthiasbock.tileviewer.model.tiles.Tile;
+import net.matthiasbock.tileviewer.model.packaging.Package;
 
 /**
  * Hold all information about an FPGA,

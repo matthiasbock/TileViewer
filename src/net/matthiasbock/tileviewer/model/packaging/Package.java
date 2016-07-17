@@ -1,4 +1,4 @@
-package model.packaging;
+package net.matthiasbock.tileviewer.model.packaging;
 
 import java.util.List;
 

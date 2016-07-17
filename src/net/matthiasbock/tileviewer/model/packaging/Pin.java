@@ -1,4 +1,4 @@
-package model.packaging;
+package net.matthiasbock.tileviewer.model.packaging;
 
 /**
  * This class holds all information about a single physical pin or pad

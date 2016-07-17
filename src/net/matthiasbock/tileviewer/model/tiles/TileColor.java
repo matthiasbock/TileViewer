@@ -1,4 +1,4 @@
-package model.tiles;
+package net.matthiasbock.tileviewer.model.tiles;
 
 import java.awt.Color;
 import java.util.HashMap;

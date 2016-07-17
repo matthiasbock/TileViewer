@@ -1,4 +1,4 @@
-package model.packaging;
+package net.matthiasbock.tileviewer.model.packaging;
 
 public enum EPinType
 {

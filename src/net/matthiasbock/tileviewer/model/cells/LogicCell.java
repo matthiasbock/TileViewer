@@ -1,4 +1,4 @@
-package model.cells;
+package net.matthiasbock.tileviewer.model.cells;
 
 /**
  * This class represents the logical cells

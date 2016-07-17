@@ -1,14 +1,14 @@
-package controller;
+package net.matthiasbock.tileviewer.controller;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-import com.google.gson.Gson;
+import net.matthiasbock.tileviewer.model.FPGA;
+import net.matthiasbock.tileviewer.view.PackageWindowTQFP;
+import net.matthiasbock.tileviewer.view.TileWindow;
 
-import model.FPGA;
-import view.PackageWindowTQFP;
-import view.TileWindow;
+import com.google.gson.Gson;
 
 public class Main
 {

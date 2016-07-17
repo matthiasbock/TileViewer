@@ -1,10 +1,9 @@
-package model.tiles;
+package net.matthiasbock.tileviewer.model.tiles;
 
-import java.lang.Character.UnicodeScript;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.cells.LogicCell;
+import net.matthiasbock.tileviewer.model.cells.LogicCell;
 
 /**
  * A superclass for the tiles,

@@ -1,8 +1,6 @@
-package model.tiles;
+package net.matthiasbock.tileviewer.model.tiles;
 
-import java.util.*;
-
-import model.cells.LogicCell;
+import net.matthiasbock.tileviewer.model.cells.LogicCell;
 
 /**
  * This class represents the logic cells within an FPGA 

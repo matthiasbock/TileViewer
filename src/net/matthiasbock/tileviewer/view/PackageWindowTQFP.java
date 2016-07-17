@@ -1,4 +1,4 @@
-package view;
+package net.matthiasbock.tileviewer.view;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -7,10 +7,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import model.FPGA;
-import model.packaging.Package;
-import model.packaging.Pin;
-import model.tiles.TileColor;
+import net.matthiasbock.tileviewer.model.FPGA;
+import net.matthiasbock.tileviewer.model.packaging.Pin;
+import net.matthiasbock.tileviewer.model.packaging.Package;
 
 /**
  * This class visualizes a TQFP package

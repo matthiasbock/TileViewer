@@ -1,4 +1,4 @@
-package model.tiles;
+package net.matthiasbock.tileviewer.model.tiles;
 
 /**
  * The different types of Tiles,
