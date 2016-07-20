@@ -14,6 +14,7 @@ public class FPGA
 {
     // variables required for JSON import
     // set by Gson using reflection
+    // Number of tiles in X and Y direction
     private int sizeX = 0;
     private int sizeY = 0;
 

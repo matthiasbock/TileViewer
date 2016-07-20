@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import net.matthiasbock.tileviewer.model.FPGA;
+import net.matthiasbock.tileviewer.model.tiles.Tile;
 import net.matthiasbock.tileviewer.model.tiles.TileColor;
 
 /**
@@ -104,24 +105,49 @@ public class TileWindow extends JFrame
             for (int x=0; x<fpga.getSizeX(); x++)
             {
                 // new tile
-                JPanel panel = new JPanel();
-
-                // set position
-                panel.setSize(tileWidth, tileHeight);
-                panel.setLocation(tileOffsetX + x*(tileWidth+tileSpacingX), minHeight - (tileOffsetY + (y+1)*tileHeight + y*tileSpacingY));
-
-                // style according to tile type
-                if (fpga.getTile(x, y) != null)
+                JPanel panel = null;
+                
+                // check, whether there's a tile at these coordinates
+                Tile tile = fpga.getTile(x, y); 
+                if (tile != null)
                 {
+                    // create a new panel
+                    panel = new JPanel();
+
+                    // set default tile position and size
+                    panel.setLocation(
+                            tileOffsetX + x*(tileWidth+tileSpacingX),
+                            minHeight - (tileOffsetY + (y+1)*tileHeight + y*tileSpacingY)
+                            );
+                    panel.setSize(tileWidth, tileHeight);
+
+                    // default styles
                     panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-                    panel.setBackground(TileColor.byType(fpga.getTile(x, y).getType()));
+                    panel.setBackground(TileColor.byType(tile.getType()));
+                    
+                    // use rowspan and colspan attributes to resize panel
+                    int rowspan = tile.getRowspan();
+                    int colspan = tile.getColspan();
+                    //System.out.printf("x=%d, y=%d: colspan=%d, rowspan=%d\n", x, y, colspan, rowspan);
+                    if (rowspan > 1 || colspan > 1)
+                    {
+                        panel.setLocation(
+                                tileOffsetX + x*(tileWidth+tileSpacingX),
+                                minHeight - (tileOffsetY + (y+rowspan)*tileHeight + (y+rowspan-1)*tileSpacingY)
+                                );
+                        panel.setSize(
+                                colspan*tileWidth + (colspan-1)*tileSpacingX,
+                                rowspan*tileHeight + (rowspan-1)*tileSpacingY
+                                );
+                    }
                 }
                 
                 // remember object link
                 row.add(panel);
                 
                 // show
-                this.add(panel);
+                if (panel != null)
+                    this.add(panel);
             }
         }
         

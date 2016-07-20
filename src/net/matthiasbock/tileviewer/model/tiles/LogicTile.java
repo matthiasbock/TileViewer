@@ -20,7 +20,7 @@ public class LogicTile extends Tile
         // is there a carry-in cell in this tile? 
         this.hasAdditionalCarryInCell = hasAdditionalCarryInCell;
         
-        // fill this tile's cell list with new instances of logic cells
+        // populate this tile's cell list with new instances of logic cells
         for (int i=0; i<numCells; i++)
         {
             cells.add(new LogicCell());
