@@ -172,6 +172,13 @@ public class TileWindow extends JFrame
     
     public JPanel getPanel(int x, int y)
     {
-        return tileBoxes.get(y).get(x);
+        try
+        {
+            return tileBoxes.get(y).get(x);
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+        }
+        return null;
     }
 }

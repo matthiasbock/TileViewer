@@ -1,11 +1,15 @@
 package net.matthiasbock.tileviewer.controller;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.JPanel;
+
 import net.matthiasbock.libpcf.model.PcfFile;
+import net.matthiasbock.libpcf.model.SetterLine;
 import net.matthiasbock.tileviewer.model.FPGA;
 import net.matthiasbock.tileviewer.view.PackageWindowTQFP;
 import net.matthiasbock.tileviewer.view.TileWindow;
@@ -35,7 +39,7 @@ public class Main
         
         // display FPGA tile architecture
         TileWindow tileWindow = new TileWindow(fpga);
-        //tileWindow.highlightUsedTiles(pcf);
+        highlightUsedTiles(tileWindow, pcf);
         
         // display FPGA package
         PackageWindowTQFP packageWindow = new PackageWindowTQFP(fpga);
@@ -107,5 +111,25 @@ public class Main
         }
         
         return pcf;
+    }
+
+
+    public static void highlightUsedTiles(TileWindow tileWindow, PcfFile pcf)
+    {
+        // highlight all used I/Os
+        for (SetterLine io : pcf.getIos())
+        {
+            int x = io.getX();
+            int y = io.getY();
+            JPanel panel = tileWindow.getPanel(x, y);
+            if (panel != null)
+            {
+                panel.setBackground(Color.MAGENTA);
+            }
+            else
+            {
+                System.out.printf("Error: I/O tile (%d | %d) not found.\n", x, y);
+            }
+        }
     }
 }
