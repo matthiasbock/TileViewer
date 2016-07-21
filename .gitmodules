@@ -1,0 +1,6 @@
+[submodule "lib/libpcf.jar"]
+	path = lib/libpcf.jar
+	url = git@github.com:matthiasbock/libpcf.jar.git
+[submodule "lib/libedif.jar"]
+	path = lib/libedif.jar
+	url = git@github.com:matthiasbock/libedif.jar

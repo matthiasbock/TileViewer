@@ -8,6 +8,3 @@ build/
 *.edif
 *.pcf
 
-src/net/matthiasbock/libedif
-src/net/matthiasbock/libpcf
-
