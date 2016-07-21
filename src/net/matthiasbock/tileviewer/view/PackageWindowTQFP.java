@@ -25,8 +25,8 @@ public class PackageWindowTQFP extends JFrame
     // in this order: left, bottom, right, top edge
     private int[] pinCount = {0, 0, 0, 0};
     
-    private int pinWidth = 5;
-    private int pinHeight = 5;
+    private int pinWidth = 12;
+    private int pinHeight = 12;
 
     /**
      * Initialize package viewer window
@@ -95,7 +95,7 @@ public class PackageWindowTQFP extends JFrame
         this.setTitle("Package viewer");
         
         this.setLocationRelativeTo(null);
-        this.setBounds(605, 10, 300, 600);
+        this.setBounds(605, 10, 600, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // layout null ist required for arbitrary panel positioning
@@ -114,13 +114,14 @@ public class PackageWindowTQFP extends JFrame
      */
     public int getEdgeByPinNumber(int pinNumber)
     {
-        if (pinNumber <= pinCount[0])
+        int count = 0;
+        if (pinNumber <= (count += pinCount[0]))
             return 0;
-        if (pinNumber <= pinCount[0]+pinCount[1])
+        if (pinNumber <= (count += pinCount[1]))
             return 1;
-        if (pinNumber <= pinCount[0]+pinCount[1]+pinCount[2])
+        if (pinNumber <= (count += pinCount[2]))
             return 2;
-        if (pinNumber <= pinCount[0]+pinCount[1]+pinCount[2]+pinCount[3])
+        if (pinNumber <= (count += pinCount[3]))
             return 3;
         
         // invalid pin number
@@ -131,19 +132,22 @@ public class PackageWindowTQFP extends JFrame
     {
         int edge = getEdgeByPinNumber(pin.getPinNumber());
         
+        int bottomRightX = (pinCount[1]+1)*pinWidth;
+        int bottomRightY = (pinCount[0]+1)*pinHeight;
+        
         switch (edge)
         {
             case 0: // left
-                return new Point(0, (pin.getPinNumber()-1)*pinHeight);
+                return new Point(0, pin.getPinNumber()*pinHeight);
 
             case 1: // bottom
-                return new Point((pin.getPinNumber()-pinCount[0])*pinWidth, pinCount[0]*pinHeight);
+                return new Point((pin.getPinNumber()-pinCount[0])*pinWidth, (pinCount[0]+1)*pinHeight);
                 
             case 2: // right
-                return new Point((pinCount[1]+2)*pinWidth, pinCount[0]*pinHeight - (pin.getPinNumber()-pinCount[0]-pinCount[1]-1)*pinHeight);
+                return new Point(bottomRightX, bottomRightY - (pin.getPinNumber()-pinCount[0]-pinCount[1])*pinHeight);
 
             case 3: // top
-                return new Point((pinCount[1]+2)*pinWidth - (pin.getPinNumber()-pinCount[0]-pinCount[1]-pinCount[2]-1)*pinWidth, 0);
+                return new Point(bottomRightX - (pin.getPinNumber()-pinCount[0]-pinCount[1]-pinCount[2])*pinWidth, 0);
                 
             default: // illegal edge
                 System.out.printf("Invalid edge: %d (pin %d)\n", edge, pin.getPinNumber());
