@@ -113,10 +113,15 @@ public class Main
         return pcf;
     }
 
-
+    /**
+     * Highlight tiles, which are in use in the imported Physical Constraints File
+     * 
+     * @param tileWindow: TileWindow in which to highlight the tiles
+     * @param pcf: Physical Constraints File to interpret
+     */
     public static void highlightUsedTiles(TileWindow tileWindow, PcfFile pcf)
     {
-        // highlight all used I/Os
+        // highlight all used I/O tiles
         for (SetterLine io : pcf.getIos())
         {
             int x = io.getX();
@@ -125,6 +130,22 @@ public class Main
             if (panel != null)
             {
                 panel.setBackground(Color.MAGENTA);
+            }
+            else
+            {
+                System.out.printf("Error: I/O tile (%d | %d) not found.\n", x, y);
+            }
+        }
+        
+        // highlight all used logic tiles
+        for (SetterLine location : pcf.getLocations())
+        {
+            int x = location.getX();
+            int y = location.getY();
+            JPanel panel = tileWindow.getPanel(x, y);
+            if (panel != null)
+            {
+                panel.setBackground(Color.CYAN);
             }
             else
             {
