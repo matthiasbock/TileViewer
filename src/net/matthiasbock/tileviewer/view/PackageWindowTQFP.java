@@ -25,8 +25,9 @@ public class PackageWindowTQFP extends JFrame
     // in this order: left, bottom, right, top edge
     private int[] pinCount = {0, 0, 0, 0};
     
-    private int pinWidth = 12;
-    private int pinHeight = 12;
+    private int pinWidth = 8;
+    private int pinHeight = 8;
+    private int pinSpacing = 5;
 
     /**
      * Initialize package viewer window
@@ -132,22 +133,28 @@ public class PackageWindowTQFP extends JFrame
     {
         int edge = getEdgeByPinNumber(pin.getPinNumber());
         
-        int bottomRightX = (pinCount[1]+1)*pinWidth;
-        int bottomRightY = (pinCount[0]+1)*pinHeight;
+        int bottomRightX = (pinCount[1]+1)*pinWidth + (pinCount[1]-1)*pinSpacing;
+        int bottomRightY = (pinCount[0]+1)*pinHeight + (pinCount[0]-1)*pinSpacing;
+        
+        int n;
         
         switch (edge)
         {
             case 0: // left
-                return new Point(0, pin.getPinNumber()*pinHeight);
+                n = pin.getPinNumber();
+                return new Point(0, n*pinHeight + (n-1)*pinSpacing);
 
             case 1: // bottom
-                return new Point((pin.getPinNumber()-pinCount[0])*pinWidth, (pinCount[0]+1)*pinHeight);
+                n = pin.getPinNumber()-pinCount[0];
+                return new Point(n*pinWidth + (n-1)*pinSpacing, (pinCount[0]+1)*pinHeight + (pinCount[0]-1)*pinSpacing);
                 
             case 2: // right
-                return new Point(bottomRightX, bottomRightY - (pin.getPinNumber()-pinCount[0]-pinCount[1])*pinHeight);
+                n = pin.getPinNumber()-pinCount[0]-pinCount[1];
+                return new Point(bottomRightX, bottomRightY - n*pinHeight - (n-1)*pinSpacing);
 
             case 3: // top
-                return new Point(bottomRightX - (pin.getPinNumber()-pinCount[0]-pinCount[1]-pinCount[2])*pinWidth, 0);
+                n = pin.getPinNumber()-pinCount[0]-pinCount[1]-pinCount[2];
+                return new Point(bottomRightX - n*pinWidth - (n-1)*pinSpacing, 0);
                 
             default: // illegal edge
                 System.out.printf("Invalid edge: %d (pin %d)\n", edge, pin.getPinNumber());
